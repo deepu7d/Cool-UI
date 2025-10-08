@@ -1,5 +1,5 @@
+import { HelloWorld } from "@/registry/default/hello-world/hello-world";
+
 export default function Home() {
-  return (
-    <h1>UI Library</h1>
-  );
+  return <HelloWorld />;
 }
