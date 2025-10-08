@@ -1,1 +1,19 @@
 @import "tailwindcss";
+
+body {
+    background-color: black;
+    color: white
+}
+
+@theme {
+    --color-dark: oklch(0.2 0 0);
+    --color-normal: oklch(0.3 0 0);
+    --color-light: oklch(0.4 0 0);
+
+    /* --color-text: oklch();
+    --color-text-muted: oklch();
+
+    --color-border: oklch();
+
+    --shadow- */
+}

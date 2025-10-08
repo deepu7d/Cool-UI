@@ -1,7 +1,7 @@
 {
   "$schema": "https://ui.shadcn.com/schema/registry.json",
   "name": "ui-lib",
-  "homepage": "https://ui-lib-nine.vercel.app/",
+  "homepage": "http://localhost:3000/",
   "items": [
     {
       "name": "hello-world",
@@ -11,7 +11,7 @@
       "files": [
         {
           "path": "src/registry/default/hello-world/hello-world.tsx",
-          "type": "registry:component"
+          "type": "registry:ui"
         }
       ]
     }

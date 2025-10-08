@@ -1,5 +1,5 @@
-import { HelloWorld } from "@/registry/default/hello-world/hello-world";
+import Button from "@/registry/default/button";
 
 export default function Home() {
-  return <HelloWorld />;
+  return <Button />;
 }

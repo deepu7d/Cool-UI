@@ -8,7 +8,7 @@
     {
       "path": "src/registry/default/hello-world/hello-world.tsx",
       "content": "export function HelloWorld() {\n  return <button>I am the first component</button>;\n}\n",
-      "type": "registry:component"
+      "type": "registry:ui"
     }
   ]
 }
