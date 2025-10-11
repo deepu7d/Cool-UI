@@ -1,4 +1,4 @@
-import SiderBar from "./sidebar";
+import SiderBar from "../../components/sidebar";
 
 export default function RootLayout({
   children,
