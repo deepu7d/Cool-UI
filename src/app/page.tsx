@@ -1,5 +1,5 @@
-import Button from "@/registry/default/button";
+import SiderBar from "@/components/sidebar";
 
 export default function Home() {
-  return <Button />;
+  return <SiderBar />;
 }
