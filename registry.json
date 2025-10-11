@@ -4,14 +4,14 @@
   "homepage": "http://localhost:3000/",
   "items": [
     {
-      "name": "hello-world",
-      "type": "registry:block",
+      "name": "navbar",
+      "type": "registry:component",
       "title": "Hello World",
       "description": "A simple hello world component.",
       "files": [
         {
-          "path": "src/registry/default/hello-world/hello-world.tsx",
-          "type": "registry:ui"
+          "path": "src/registry/default/navbar.tsx",
+          "type": "registry:component"
         }
       ]
     }
