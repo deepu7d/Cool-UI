@@ -2,7 +2,6 @@
 
 import { useState } from "react";
 import { motion } from "motion/react";
-import Link from "next/link";
 
 type NavItem = {
   name: string;
@@ -25,22 +24,21 @@ export default function FramerMotionNav() {
       onMouseLeave={() => setHoveredTab(null)}
     >
       {navItems.map((item) => (
-        <Link key={item.name} href={"#"} className="mx-1">
-          <button
-            onMouseEnter={() => setHoveredTab(item.name)}
-            className={`relative rounded-md px-3 py-2 text-sm font-medium transition-colors duration-300`}
-          >
-            <span className="relative z-10">{item.name}</span>
+        <button
+          key={item.name}
+          onMouseEnter={() => setHoveredTab(item.name)}
+          className={`relative rounded-md px-3 py-2 text-sm font-medium transition-colors duration-300`}
+        >
+          <span className="relative z-10">{item.name}</span>
 
-            {hoveredTab === item.name && (
-              <motion.div
-                layoutId="active-pill"
-                transition={{ type: "spring", duration: 0.3 }}
-                className="absolute inset-0 bg-light rounded-md z-0"
-              />
-            )}
-          </button>
-        </Link>
+          {hoveredTab === item.name && (
+            <motion.div
+              layoutId="active-pill"
+              transition={{ type: "spring", duration: 0.3 }}
+              className="absolute inset-0 bg-light rounded-md z-0"
+            />
+          )}
+        </button>
       ))}
     </nav>
   );
