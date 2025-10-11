@@ -1,7 +1,7 @@
 export const componentsList = [
   {
-    name: "Button",
-    fileName: "button",
+    name: "Navbar",
+    fileName: "navbar",
   },
   {
     name: "Combobox",
