@@ -4,7 +4,7 @@ export const componentsList = [
     fileName: "navbar",
   },
   {
-    name: "Combobox",
-    fileName: "combo-box",
+    name: "Volume Bar",
+    fileName: "volume-bar",
   },
 ];

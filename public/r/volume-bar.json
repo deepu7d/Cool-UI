@@ -1,0 +1,18 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "volume-bar",
+  "type": "registry:component",
+  "title": "Volume Bar",
+  "description": "A volume bar component with adjustable levels.",
+  "dependencies": [
+    "motion",
+    "lucide-react"
+  ],
+  "files": [
+    {
+      "path": "src/registry/default/volume-bar.tsx",
+      "content": "\"use client\";\nimport React, { useRef } from \"react\";\nimport {\n  motion,\n  useMotionValue,\n  useSpring,\n  useTransform,\n  PanInfo,\n} from \"motion/react\";\nimport { Volume, Volume1, Volume2, VolumeOff } from \"lucide-react\";\n\nconst BrightnessSlider: React.FC = () => {\n  const containerRef = useRef<HTMLDivElement>(null);\n\n  const brightness = useMotionValue(0);\n\n  const smoothedBrightness = useSpring(brightness, {\n    mass: 0.1,\n    stiffness: 300,\n    damping: 20,\n  });\n\n  const height = useTransform(smoothedBrightness, [0, 1], [\"0%\", \"100%\"]);\n  const volumeOff = useTransform(smoothedBrightness, [0, 0.05], [1, 0]);\n  const volumeLow = useTransform(smoothedBrightness, [0, 0.2], [0, 1]);\n  const volumeMedium = useTransform(smoothedBrightness, [0.3, 0.7], [0, 1]);\n  const volumeHigh = useTransform(smoothedBrightness, [0.7, 1], [0, 1]);\n\n  const handlePan = (\n    event: MouseEvent | TouchEvent | PointerEvent,\n    info: PanInfo\n  ) => {\n    const container = containerRef.current;\n    if (!container) return;\n\n    const rect = container.getBoundingClientRect();\n    const newBrightness = 1 - (info.point.y - rect.top) / rect.height;\n    const clampedBrightness = Math.max(0, Math.min(1, newBrightness));\n\n    brightness.set(clampedBrightness);\n  };\n\n  return (\n    <motion.div\n      ref={containerRef}\n      onPan={handlePan}\n      onPanStart={handlePan}\n      onPanEnd={handlePan}\n      className=\"relative flex items-end w-20 h-52 bg-light rounded-full cursor-grab active:cursor-grabbing overflow-hidden select-none\"\n      style={{ touchAction: \"none\" }}\n    >\n      <motion.div\n        className=\"w-full bg-slate-50 flex justify-center items-center \"\n        style={{ height }}\n      ></motion.div>\n      <div className=\"grid absolute w-full bottom-4 place-items-center text-dark\">\n        <motion.div style={{ opacity: volumeOff }} className=\"[grid-area:1/1]\">\n          <VolumeOff />\n        </motion.div>\n        <motion.div style={{ opacity: volumeLow }} className=\"[grid-area:1/1]\">\n          <Volume />\n        </motion.div>\n        <motion.div\n          style={{ opacity: volumeMedium }}\n          className=\"[grid-area:1/1]\"\n        >\n          <Volume1 />\n        </motion.div>\n        <motion.div style={{ opacity: volumeHigh }} className=\"[grid-area:1/1]\">\n          <Volume2 />\n        </motion.div>\n      </div>\n    </motion.div>\n  );\n};\n\nexport default BrightnessSlider;\n",
+      "type": "registry:component"
+    }
+  ]
+}
