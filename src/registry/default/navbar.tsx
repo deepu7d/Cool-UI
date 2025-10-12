@@ -17,12 +17,8 @@ const navItems: NavItem[] = [
 
 export default function FramerMotionNav() {
   const [hoveredTab, setHoveredTab] = useState<string | null>(null);
-
   return (
-    <nav
-      className="relative inline-flex items-center bg-dark p-2 rounded-lg"
-      onMouseLeave={() => setHoveredTab(null)}
-    >
+    <nav className="relative inline-flex items-center bg-dark p-2 rounded-lg">
       {navItems.map((item) => (
         <button
           key={item.name}
