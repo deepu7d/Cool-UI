@@ -7,4 +7,8 @@ export const componentsList = [
     name: "Volume Bar",
     fileName: "volume-bar",
   },
+  {
+    name: "Loading Spinner",
+    fileName: "loading-spinner",
+  },
 ];

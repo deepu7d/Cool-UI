@@ -28,6 +28,19 @@
         }
       ],
       "dependencies": ["motion", "lucide-react"]
+    },
+    {
+      "name": "loading-spinner",
+      "type": "registry:component",
+      "title": "Loading Spinner",
+      "description": "A loading spinner component to indicate loading status.",
+      "files": [
+        {
+          "path": "src/registry/default/loading-spinner.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "dependencies": ["motion", "lucide-react"]
     }
   ]
 }
