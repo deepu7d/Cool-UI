@@ -4,20 +4,23 @@ import { useState } from "react";
 import { componentsList } from "@/lib/components";
 import Link from "next/link";
 import { Menu, X } from "lucide-react";
+import { motion } from "motion/react";
 
 export default function SiderBar() {
   const [isOpen, setIsOpen] = useState(false);
+  const [activeComponent, setActiveComponent] = useState<string | null>(null);
 
-  const handleLinkClick = () => {
+  const handleLinkClick = (component: string) => {
     if (isOpen) {
       setIsOpen(false);
     }
+    setActiveComponent(component);
   };
 
   return (
     <>
       <button
-        className="lg:hidden fixed top-5 left-5 z-30 p-2 bg-normal rounded-full text-white"
+        className="bg-normal fixed top-5 left-5 z-30 rounded-full p-2 text-white lg:hidden"
         onClick={() => setIsOpen(!isOpen)}
         aria-label="Open menu"
       >
@@ -25,13 +28,7 @@ export default function SiderBar() {
       </button>
 
       <aside
-        className={`
-          flex flex-col h-dvh bg-dark gap-5 p-6 text-white
-          fixed top-0 left-0 z-20 w-[70%]
-          transform transition-transform duration-300 ease-in-out
-          lg:relative lg:translate-x-0 lg:w-[15%]
-          ${isOpen ? "translate-x-0" : "-translate-x-full"}
-        `}
+        className={`bg-dark fixed top-0 left-0 z-20 flex h-dvh w-[70%] transform flex-col gap-5 p-6 text-white transition-transform duration-300 ease-in-out lg:relative lg:w-[15%] lg:translate-x-0 ${isOpen ? "translate-x-0" : "-translate-x-full"} `}
       >
         <div className="flex justify-end lg:hidden">
           <button onClick={() => setIsOpen(false)} aria-label="Close menu">
@@ -39,15 +36,26 @@ export default function SiderBar() {
           </button>
         </div>
 
-        <nav className="flex flex-col gap-4 mt-8 lg:mt-0">
+        <nav className="mt-8 flex flex-col gap-4 lg:mt-0">
           {componentsList.map((component) => (
             <Link
               href={`/components/${component.fileName}`}
-              className="text-center text-lg p-2 rounded-lg hover:bg-normal transition-colors"
+              className="relative rounded-lg p-2 text-center text-lg transition-colors hover:scale-105"
               key={component.name}
-              onClick={handleLinkClick}
+              onClick={() => handleLinkClick(component.name)}
             >
-              {component.name}
+              <span
+                className={`relative z-10 ${activeComponent === component.name ? "font-medium" : "text-neutral-100"}`}
+              >
+                {component.name}
+              </span>
+              {activeComponent === component.name && (
+                <motion.div
+                  transition={{ type: "spring", duration: 0.5 }}
+                  layoutId="active-component"
+                  className="bg-normal absolute inset-0 z-0 rounded-md"
+                ></motion.div>
+              )}
             </Link>
           ))}
         </nav>
@@ -55,7 +63,7 @@ export default function SiderBar() {
 
       {isOpen && (
         <div
-          className="lg:hidden fixed inset-0 bg-black/50 z-10"
+          className="fixed inset-0 z-10 bg-black/50 lg:hidden"
           onClick={() => setIsOpen(false)}
         ></div>
       )}
