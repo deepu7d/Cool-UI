@@ -9,35 +9,35 @@ import {
 } from "motion/react";
 import { Volume, Volume1, Volume2, VolumeOff } from "lucide-react";
 
-const BrightnessSlider: React.FC = () => {
+export default function VolumeBar() {
   const containerRef = useRef<HTMLDivElement>(null);
 
-  const brightness = useMotionValue(0);
+  const volume = useMotionValue(0);
 
-  const smoothedBrightness = useSpring(brightness, {
+  const smoothedVolume = useSpring(volume, {
     mass: 0.1,
     stiffness: 300,
     damping: 20,
   });
 
-  const height = useTransform(smoothedBrightness, [0, 1], ["0%", "100%"]);
-  const volumeOff = useTransform(smoothedBrightness, [0, 0.05], [1, 0]);
-  const volumeLow = useTransform(smoothedBrightness, [0, 0.2], [0, 1]);
-  const volumeMedium = useTransform(smoothedBrightness, [0.3, 0.7], [0, 1]);
-  const volumeHigh = useTransform(smoothedBrightness, [0.7, 1], [0, 1]);
+  const height = useTransform(smoothedVolume, [0, 1], ["0%", "100%"]);
+  const volumeOff = useTransform(smoothedVolume, [0, 0.05], [1, 0]);
+  const volumeLow = useTransform(smoothedVolume, [0, 0.2], [0, 1]);
+  const volumeMedium = useTransform(smoothedVolume, [0.3, 0.7], [0, 1]);
+  const volumeHigh = useTransform(smoothedVolume, [0.7, 1], [0, 1]);
 
   const handlePan = (
     event: MouseEvent | TouchEvent | PointerEvent,
-    info: PanInfo
+    info: PanInfo,
   ) => {
     const container = containerRef.current;
     if (!container) return;
 
     const rect = container.getBoundingClientRect();
-    const newBrightness = 1 - (info.point.y - rect.top) / rect.height;
-    const clampedBrightness = Math.max(0, Math.min(1, newBrightness));
+    const newVolume = 1 - (info.point.y - rect.top) / rect.height;
+    const clampedVolume = Math.max(0, Math.min(1, newVolume));
 
-    brightness.set(clampedBrightness);
+    volume.set(clampedVolume);
   };
 
   return (
@@ -46,14 +46,14 @@ const BrightnessSlider: React.FC = () => {
       onPan={handlePan}
       onPanStart={handlePan}
       onPanEnd={handlePan}
-      className="relative flex items-end w-20 h-52 bg-light rounded-full cursor-grab active:cursor-grabbing overflow-hidden select-none"
+      className="bg-light relative flex h-52 w-20 cursor-grab items-end overflow-hidden rounded-full select-none active:cursor-grabbing"
       style={{ touchAction: "none" }}
     >
       <motion.div
-        className="w-full bg-slate-50 flex justify-center items-center "
+        className="flex w-full items-center justify-center bg-slate-50"
         style={{ height }}
       ></motion.div>
-      <div className="grid absolute w-full bottom-4 place-items-center text-dark">
+      <div className="text-dark absolute bottom-4 grid w-full place-items-center">
         <motion.div style={{ opacity: volumeOff }} className="[grid-area:1/1]">
           <VolumeOff />
         </motion.div>
@@ -72,6 +72,4 @@ const BrightnessSlider: React.FC = () => {
       </div>
     </motion.div>
   );
-};
-
-export default BrightnessSlider;
+}

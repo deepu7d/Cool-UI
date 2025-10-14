@@ -9,7 +9,7 @@ export interface LoaderProps {
   width?: number;
   radius?: number;
 }
-function MotionFadeLoader({
+export default function LoadingSpinner({
   loading = true,
   color = "#000000",
   speedMultiplier = 1, // changing this is causing issue
@@ -65,5 +65,3 @@ function MotionFadeLoader({
     </motion.div>
   );
 }
-
-export default MotionFadeLoader;
