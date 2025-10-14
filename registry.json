@@ -41,6 +41,19 @@
         }
       ],
       "dependencies": ["motion", "lucide-react"]
+    },
+    {
+      "name": "cards",
+      "type": "registry:component",
+      "title": "Cards",
+      "description": "A card component with animations.",
+      "files": [
+        {
+          "path": "src/registry/default/cards.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "dependencies": ["motion", "lucide-react"]
     }
   ]
 }

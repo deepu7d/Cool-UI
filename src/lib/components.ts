@@ -11,4 +11,8 @@ export const componentsList = [
     name: "Loading Spinner",
     fileName: "loading-spinner",
   },
+  {
+    name: "Cards",
+    fileName: "cards",
+  },
 ];
