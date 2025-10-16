@@ -11,7 +11,7 @@ export interface LoaderProps {
 }
 export default function LoadingSpinner({
   loading = true,
-  color = "#000000",
+  color = "white",
   speedMultiplier = 1, // changing this is causing issue
   height = 15,
   width = 5,

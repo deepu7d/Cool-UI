@@ -21,8 +21,8 @@ export default function VolumeBar() {
   });
 
   const height = useTransform(smoothedVolume, [0, 1], ["0%", "100%"]);
-  const volumeOff = useTransform(smoothedVolume, [0, 0.05], [1, 0]);
-  const volumeLow = useTransform(smoothedVolume, [0, 0.2], [0, 1]);
+  const volumeOff = useTransform(smoothedVolume, [0, 0.04, 0.05], [1, 1, 0]);
+  const volumeLow = useTransform(smoothedVolume, [0.05, 0.06, 0.2], [0, 1, 1]);
   const volumeMedium = useTransform(smoothedVolume, [0.3, 0.7], [0, 1]);
   const volumeHigh = useTransform(smoothedVolume, [0.7, 1], [0, 1]);
 

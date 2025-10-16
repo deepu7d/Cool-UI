@@ -1,13 +1,20 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { componentsList } from "@/lib/components";
 import Link from "next/link";
 import { Menu, X } from "lucide-react";
 import { motion } from "motion/react";
+import { useParams } from "next/navigation";
 
 export default function SiderBar() {
+  const params = useParams();
   const [isOpen, setIsOpen] = useState(false);
+
+  useEffect(() => {
+    setActiveComponent((params.component as string) || null);
+  }, [params]);
+
   const [activeComponent, setActiveComponent] = useState<string | null>(null);
 
   const handleLinkClick = (component: string) => {
@@ -16,11 +23,12 @@ export default function SiderBar() {
     }
     setActiveComponent(component);
   };
+  console.log(activeComponent);
 
   return (
     <>
       <button
-        className="bg-normal fixed top-5 left-5 z-30 rounded-full p-2 text-white lg:hidden"
+        className="bg-normal fixed top-20 right-5 z-30 rounded-full p-2 text-white lg:hidden"
         onClick={() => setIsOpen(!isOpen)}
         aria-label="Open menu"
       >
@@ -28,7 +36,7 @@ export default function SiderBar() {
       </button>
 
       <aside
-        className={`bg-dark fixed top-0 left-0 z-20 flex h-dvh w-[70%] transform flex-col gap-5 p-6 text-white transition-transform duration-300 ease-in-out lg:relative lg:w-[15%] lg:translate-x-0 ${isOpen ? "translate-x-0" : "-translate-x-full"} `}
+        className={`bg fixed top-0 left-0 z-20 flex h-dvh w-[70%] transform flex-col gap-5 border-r-1 border-slate-800/50 bg-black p-6 text-white transition-transform duration-300 ease-in-out lg:relative lg:w-[15%] lg:translate-x-0 ${isOpen ? "translate-x-0" : "-translate-x-full"} `}
       >
         <div className="flex justify-end lg:hidden">
           <button onClick={() => setIsOpen(false)} aria-label="Close menu">
@@ -40,20 +48,20 @@ export default function SiderBar() {
           {componentsList.map((component) => (
             <Link
               href={`/components/${component.fileName}`}
-              className="relative rounded-lg p-2 text-center text-lg transition-colors hover:scale-105"
+              className="text-md relative rounded-lg p-2 text-center transition-colors"
               key={component.name}
-              onClick={() => handleLinkClick(component.name)}
+              onClick={() => handleLinkClick(component.fileName)}
             >
               <span
-                className={`relative z-10 ${activeComponent === component.name ? "font-medium" : "text-neutral-100"}`}
+                className={`relative z-10 ${activeComponent === component.fileName ? "text-neutral-200" : "text-neutral-400"} hover:text-neutral-100`}
               >
                 {component.name}
               </span>
-              {activeComponent === component.name && (
+              {activeComponent === component.fileName && (
                 <motion.div
                   transition={{ type: "spring", duration: 0.5 }}
                   layoutId="active-component"
-                  className="bg-normal absolute inset-0 z-0 rounded-md"
+                  className="absolute inset-0 z-0 border-l-2 border-neutral-200"
                 ></motion.div>
               )}
             </Link>

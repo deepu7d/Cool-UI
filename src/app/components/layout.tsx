@@ -1,4 +1,4 @@
-import SiderBar from "../../components/sidebar";
+import SiderBar from "@/components/sidebar";
 
 export default function RootLayout({
   children,
@@ -6,7 +6,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <div className="flex w-full">
+    <div className="flex w-full bg-black">
       <SiderBar />
       {children}
     </div>

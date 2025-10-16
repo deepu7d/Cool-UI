@@ -12,7 +12,7 @@ export default async function Component({
   );
   const DynamicComponent = componentModule.default;
   return (
-    <div className="flex h-dvh w-full items-center justify-center bg-neutral-500">
+    <div className="z-10 flex h-dvh w-full items-center justify-center p-4">
       <DynamicComponent />
     </div>
   );

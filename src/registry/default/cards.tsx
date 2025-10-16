@@ -72,11 +72,12 @@ export default function Cards() {
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
               onClick={() => setSelectedCard(null)}
-              className="bg-dark/70 absolute inset-0 backdrop-blur-sm"
+              className="absolute inset-0 bg-black/50 backdrop-blur-sm"
             />
 
             {/* Expanded Card */}
             <motion.div
+              transition={{ duration: 0.2, ease: "easeInOut" }}
               layoutId={selectedCard.id}
               className="bg-light relative z-10 max-w-sm rounded-lg p-8 shadow-2xl"
             >
@@ -89,9 +90,8 @@ export default function Cards() {
               </motion.button>
 
               <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.3 }}
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
                 exit={{ opacity: 0 }}
               >
                 <div className="mb-6 flex items-center space-x-4">
