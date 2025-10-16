@@ -1,14 +1,11 @@
-import Navbar from "@/components/navbar";
 import Wrapper from "@/components/wrapper";
-import LoadingSpinner from "@/registry/default/loading-spinner";
-import VolumeBar from "@/registry/default/volume-bar";
 import Link from "next/link";
 
 export default function Home() {
   return (
     <Wrapper>
-      <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-slate-500/10 via-transparent to-transparent" />
-      <div className="flex w-full justify-center pt-20">
+      <div className="pointer-events-none absolute inset-0 h-full bg-gradient-to-t via-transparent to-transparent lg:from-slate-400/10" />
+      <div className="flex w-full justify-center pt-5 lg:pt-20">
         <div className="flex w-full max-w-3xl flex-col items-center justify-center gap-10 p-4 text-center">
           <a
             href="https://ui.shadcn.com/docs/registry"
