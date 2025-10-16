@@ -53,7 +53,7 @@ export default function Cards() {
             key={card.id}
             layoutId={card.id}
             onClick={() => setSelectedCard(card)}
-            className="bg-light 700 relative cursor-pointer rounded-lg p-6 shadow-xl transition-shadow duration-300 hover:shadow-2xl hover:shadow-neutral-600"
+            className="bg-light 700 relative cursor-pointer rounded-lg p-6 shadow-xl transition-shadow duration-300 hover:shadow-xl hover:shadow-neutral-900/50"
           >
             <h2 className="mb-1 text-xl font-semibold text-neutral-100">
               {card.title}

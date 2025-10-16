@@ -1,6 +1,5 @@
 "use client";
 import { Moon, Search, Sun } from "lucide-react";
-import { motion } from "motion/react";
 import Link from "next/link";
 const items = [
   { label: "Components", href: "/components/navbar" },

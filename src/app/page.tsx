@@ -7,7 +7,7 @@ import Link from "next/link";
 export default function Home() {
   return (
     <Wrapper>
-      <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-slate-600/10 via-transparent to-transparent" />
+      <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-slate-500/10 via-transparent to-transparent" />
       <div className="flex w-full justify-center pt-20">
         <div className="flex w-full max-w-3xl flex-col items-center justify-center gap-10 p-4 text-center">
           <a
@@ -64,9 +64,9 @@ export default function Home() {
             Some random components for your React project.
           </h1>
           <p className="text-md text-neutral-200 lg:text-lg">
-            Why build from scratch? Browse our collection of animated
+            {`Why build from scratch? Browse our collection of animated
             components. Copy, paste, and ship your product fast. It's that
-            simple.
+            simple.`}
           </p>
           <div className="flex flex-col gap-4 text-lg lg:flex-row">
             <Link href="/components/navbar">
