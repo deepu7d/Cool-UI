@@ -30,7 +30,9 @@ export default function Navbar() {
           className={`relative rounded-md px-3 py-2 font-medium transition-colors duration-300`}
           onClick={() => setActiveTab(item.name)}
         >
-          <span className="relative z-10 text-2xl font-light">{item.name}</span>
+          <span className="relative z-10 font-light md:text-2xl">
+            {item.name}
+          </span>
 
           {(hoveredTab === item.name || activeTab === item.name) && (
             <motion.div
