@@ -5,7 +5,7 @@ export default function Home() {
   return (
     <Wrapper>
       <div className="pointer-events-none absolute inset-0 h-full bg-gradient-to-t via-transparent to-transparent lg:from-slate-400/10" />
-      <div className="flex w-full justify-center pt-5 lg:pt-20">
+      <div className="flex w-full justify-center pt-5 md:pt-20">
         <div className="flex w-full max-w-3xl flex-col items-center justify-center gap-10 p-4 text-center">
           <a
             href="https://ui.shadcn.com/docs/registry"
@@ -57,15 +57,15 @@ export default function Home() {
               </svg>
             </div>
           </a>
-          <h1 className="bg-gradient-to-r from-white via-neutral-200 to-white bg-clip-text text-4xl font-bold text-transparent lg:text-7xl">
+          <h1 className="bg-gradient-to-r from-white via-neutral-200 to-white bg-clip-text text-4xl font-bold text-transparent md:text-6xl lg:text-7xl">
             Some random components for your React project.
           </h1>
-          <p className="text-md text-neutral-200 lg:text-lg">
+          <p className="text-md text-neutral-200 md:text-lg">
             {`Why build from scratch? Browse our collection of animated
             components. Copy, paste, and ship your product fast. It's that
             simple.`}
           </p>
-          <div className="flex flex-col gap-4 text-lg lg:flex-row">
+          <div className="flex flex-col gap-4 text-lg md:flex-row">
             <Link href="/components/navbar">
               <button className="w-56 cursor-pointer rounded-full bg-white py-4 text-black">
                 Browse Components
