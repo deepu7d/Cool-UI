@@ -4,7 +4,6 @@ import Link from "next/link";
 export default function Home() {
   return (
     <Wrapper>
-      <div className="pointer-events-none absolute inset-0 h-full bg-gradient-to-t via-transparent to-transparent lg:from-slate-400/10" />
       <div className="flex w-full justify-center pt-5 md:pt-20">
         <div className="flex w-full max-w-3xl flex-col items-center justify-center gap-10 p-4 text-center">
           <a

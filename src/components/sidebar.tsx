@@ -28,7 +28,7 @@ export default function SiderBar() {
   return (
     <>
       <button
-        className="bg-normal fixed top-20 right-5 z-30 rounded-full p-2 text-white lg:hidden"
+        className="bg-normal fixed top-20 right-5 z-9999 rounded-full p-2 text-white lg:hidden"
         onClick={() => setIsOpen(!isOpen)}
         aria-label="Open menu"
       >
@@ -38,13 +38,7 @@ export default function SiderBar() {
       <aside
         className={`bg fixed top-0 left-0 z-20 flex h-dvh w-[70%] transform flex-col gap-5 border-r-1 border-slate-800/50 bg-black p-6 text-white transition-transform duration-300 ease-in-out lg:relative lg:w-[15%] lg:translate-x-0 ${isOpen ? "translate-x-0" : "-translate-x-full"} `}
       >
-        <div className="flex justify-end lg:hidden">
-          <button onClick={() => setIsOpen(false)} aria-label="Close menu">
-            <X size={28} />
-          </button>
-        </div>
-
-        <nav className="mt-8 flex flex-col gap-4 lg:mt-0">
+        <nav className="mt-20 flex flex-col gap-4 lg:mt-0">
           {componentsList.map((component) => (
             <Link
               href={`/components/${component.fileName}`}

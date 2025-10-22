@@ -8,7 +8,7 @@ const items = [
 
 export default function Navbar() {
   return (
-    <nav className="flex w-full items-center justify-between border-b border-neutral-800/50 bg-black p-4 md:px-10 md:py-4">
+    <nav className="sticky top-0 z-1000 flex w-full items-center justify-between border-b border-neutral-800/50 bg-black/80 p-4 md:static md:px-10 md:py-4">
       <Link href="/">
         <h1 className="text-2xl font-bold md:text-3xl lg:text-4xl">Cool UI</h1>
       </Link>
@@ -21,7 +21,11 @@ export default function Navbar() {
             <Link href={item.href}>{item.label}</Link>
           </li>
         ))}
-        <a href="https://github.com/deepu7d" className="hover:text-neutral-200">
+        <a
+          href="https://github.com/deepu7d"
+          target="_blank"
+          className="hover:text-neutral-200"
+        >
           <svg
             xmlns="http://www.w3.org/2000/svg"
             width="24"
@@ -41,6 +45,7 @@ export default function Navbar() {
         <a
           href="https://www.linkedin.com/in/deepanshu-s-61825824a/"
           className="hover:text-neutral-200"
+          target="_blank"
         >
           <svg
             xmlns="http://www.w3.org/2000/svg"
