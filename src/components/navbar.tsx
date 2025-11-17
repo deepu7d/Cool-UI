@@ -1,6 +1,8 @@
 "use client";
 import { Moon, Search, Sun } from "lucide-react";
 import Link from "next/link";
+import SearchComponents from "./search-components";
+
 const items = [
   { label: "Components", href: "/components/navbar" },
   { label: "Docs", href: "/docs" },
@@ -8,7 +10,7 @@ const items = [
 
 export default function Navbar() {
   return (
-    <nav className="sticky top-0 z-1000 flex w-full items-center justify-between border-b border-neutral-800/50 bg-black/80 p-4 md:static md:px-10 md:py-4">
+    <nav className="sticky top-0 z-1000 flex w-full items-center justify-between border-b border-neutral-800/50 bg-black/80 p-4 md:fixed md:px-10 md:py-4">
       <Link href="/">
         <h1 className="text-2xl font-bold md:text-3xl lg:text-4xl">Cool UI</h1>
       </Link>
@@ -70,10 +72,7 @@ export default function Navbar() {
         {/* <button className="flex">
           <Moon className="h-5 w-5" />
         </button> */}
-        <button className="hidden w-full cursor-pointer items-center justify-center gap-2 rounded-2xl border border-neutral-400/50 bg-transparent px-6 py-2 lg:flex">
-          <Search className="p-1" />
-          <span className="hover:text-neutral-200">Search Components</span>
-        </button>
+        <SearchComponents />
       </ul>
     </nav>
   );

@@ -23,7 +23,6 @@ export default function SiderBar() {
     }
     setActiveComponent(component);
   };
-  console.log(activeComponent);
 
   return (
     <>
@@ -34,9 +33,9 @@ export default function SiderBar() {
       >
         <Menu size={24} />
       </button>
-
+      {/* change the hard coded top padding value for navbar overlay */}
       <aside
-        className={`bg fixed top-0 left-0 z-20 flex h-dvh w-[70%] transform flex-col gap-5 border-r-1 border-slate-800/50 bg-black p-6 text-white transition-transform duration-300 ease-in-out lg:relative lg:w-[15%] lg:translate-x-0 ${isOpen ? "translate-x-0" : "-translate-x-full"} `}
+        className={`bg fixed top-0 left-0 z-20 flex h-dvh w-[70%] transform flex-col gap-5 border-r-1 border-slate-800/50 bg-black p-6 text-white transition-transform duration-300 ease-in-out lg:relative lg:w-[15%] lg:translate-x-0 lg:pt-32 ${isOpen ? "translate-x-0" : "-translate-x-full"} `}
       >
         <nav className="mt-20 flex flex-col gap-4 lg:mt-0">
           {componentsList.map((component) => (
