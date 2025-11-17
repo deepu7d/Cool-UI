@@ -45,7 +45,7 @@ export default function Cards() {
   const [selectedCard, setSelectedCard] = useState<Card | null>(null);
 
   return (
-    <div className="relative flex min-h-screen w-full items-center justify-center p-4 font-sans">
+    <div className="relative flex w-full items-center justify-center p-4 font-sans">
       {/* Main cards list */}
       <div className="grid w-full max-w-4xl grid-cols-1 gap-6 md:grid-cols-3">
         {cards.map((card) => (
